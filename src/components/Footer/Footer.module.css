@@ -1,0 +1,105 @@
+.footer {
+  padding-top: 60px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  background-color: var(--dark-accent);
+}
+
+/* TOP CONTENT */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-bottom: 48px;
+}
+
+@media only screen and (min-width: 768px) {
+  .content {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+/* BRAND */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 280px;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--light-text);
+  margin: 0;
+}
+
+.brandText {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--secondary-text);
+  margin: 0;
+}
+
+/* COLUMNS */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.colTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+}
+
+.colList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--secondary-text);
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--gold);
+}
+
+/* BOTTOM */
+.bottom {
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.copy {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--secondary-text);
+  margin: 0;
+  opacity: 0.6;
+}
+
+.contactItem {
+  display: flex;
+  gap: 8px;
+}
+
+.icon {
+  font-size: 16px;
+}

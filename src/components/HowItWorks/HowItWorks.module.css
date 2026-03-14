@@ -1,0 +1,135 @@
+.howItWorks {
+  padding: 30px 0;
+}
+
+.wrapper {
+  background-color: var(--card);
+  border-radius: 24px;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 48px 40px;
+    gap: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    padding: 60px 80px;
+    gap: 48px;
+  }
+}
+
+/* HEADER */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--card-text);
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* CARD */
+.card {
+  background-color: var(--dark-accent);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width: 1440px) {
+  .card {
+    padding: 36px 32px;
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(198, 162, 123, 0.15);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.cardTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--light-text);
+  margin: 0;
+}
+
+.cardText {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--rose-accent);
+  margin: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+  .cardText {
+    font-size: 14px;
+  }
+}

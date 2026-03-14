@@ -1,0 +1,145 @@
+.faq {
+  padding: 30px 0;
+}
+
+.wrapper {
+  background-color: var(--card);
+  border-radius: 24px;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 48px 40px;
+    gap: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    padding: 60px 80px;
+    gap: 48px;
+  }
+}
+
+/* HEADER */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--card-text);
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+/* LIST */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ITEM — dark card */
+.item {
+  background-color: var(--main-bg);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--light-text);
+  transition: color 0.2s;
+}
+
+.question:hover {
+  color: var(--gold);
+}
+
+@media only screen and (min-width: 1440px) {
+  .question {
+    font-size: 14px;
+    padding: 20px 24px;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  font-size: 16px;
+  color: var(--gold);
+  line-height: 1;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.iconOpen {
+  background-color: var(--gold);
+  color: var(--dark-accent);
+}
+
+.answer {
+  padding: 0 20px 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--secondary-text);
+  margin: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+  .answer {
+    font-size: 14px;
+    padding: 0 24px 20px;
+  }
+}
