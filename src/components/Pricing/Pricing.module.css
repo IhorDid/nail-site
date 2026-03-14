@@ -180,9 +180,13 @@
 /* BUTTON */
 .btn {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 14px;
   border-radius: 50px;
   background-color: var(--light-text);
+
   color: var(--dark-accent);
   font-family: 'Manrope', sans-serif;
   font-size: 14px;

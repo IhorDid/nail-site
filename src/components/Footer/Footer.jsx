@@ -25,7 +25,7 @@ const courses = [
 const contacts = [
   {
     label: 'Telegram',
-    href: 'https://t.me/IhorBond25',
+    href: 'https://t.me/so_janeb',
     icon: <TbBrandTelegram />,
   },
   {
@@ -38,8 +38,16 @@ const contacts = [
     href: 'https://www.threads.net/@so.janeb',
     icon: <FaSquareThreads />,
   },
-  { label: 'YouTube', href: '#', icon: <CiYoutube /> },
-  { label: 'TikTok', href: '#', icon: <PiTiktokLogoLight /> },
+  {
+    label: 'YouTube',
+    href: 'https://youtube.com/@so_jane_b?si=Ogn3kNkzAxVy17wg',
+    icon: <CiYoutube />,
+  },
+  {
+    label: 'TikTok',
+    href: 'https://www.tiktok.com/@so_janeb',
+    icon: <PiTiktokLogoLight />,
+  },
 ];
 
 const Footer = () => {
@@ -104,6 +112,14 @@ const Footer = () => {
         </div>
         <div className={css.bottom}>
           <p className={css.copy}>© 2026 Slim Form. Всі права захищено.</p>
+          <a
+            href="https://sojaneb.com/oferta"
+            className={css.oferta}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Договір публічної оферти
+          </a>
         </div>
       </SharedLayout>
     </footer>

@@ -26,10 +26,14 @@ function AnimatedSection({
             observer.unobserve(element);
           }
         } else {
-          setIsVisible(entry.isIntersecting);
+          if (entry.intersectionRatio >= threshold) {
+            setIsVisible(true);
+          } else if (entry.intersectionRatio < 0.05) {
+            setIsVisible(false);
+          }
         }
       },
-      { threshold },
+      { threshold: [0, 0.05, threshold] },
     );
 
     observer.observe(element);

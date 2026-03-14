@@ -6,6 +6,7 @@ const plans = [
     title: 'Все сама',
     price: '3200',
     popular: false,
+    payUrl: 'WAYFORPAY_LINK_1', // замінити на своє посилання з кабінету WayForPay
     features: [
       'Доступ до всіх уроків',
       'Загальний чат учасників',
@@ -17,6 +18,7 @@ const plans = [
     title: 'З куратором',
     price: '4600',
     popular: true,
+    payUrl: 'WAYFORPAY_LINK_2', // замінити на своє посилання з кабінету WayForPay
     features: [
       "Зворотний зв'язок",
       'Перевірка домашніх завдань від куратора',
@@ -37,7 +39,7 @@ const Pricing = () => {
             <h2 className={css.title}>Обери свій тариф</h2>
           </div>
           <div className={css.grid}>
-            {plans.map(({ title, price, popular, features }) => (
+            {plans.map(({ title, price, popular, payUrl, features }) => (
               <div key={title} className={css.card}>
                 {popular && <div className={css.badge}>Популярний вибір</div>}
                 <div className={css.cardHeader}>
@@ -54,7 +56,9 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-                <button className={css.btn}>Записатися</button>
+                <a href={payUrl} target="_blank" rel="noopener noreferrer" className={css.btn}>
+                  Записатися
+                </a>
               </div>
             ))}
           </div>

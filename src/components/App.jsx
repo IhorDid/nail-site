@@ -12,6 +12,7 @@ import Pricing from './Pricing/Pricing';
 import FAQ from './FAQ/FAQ';
 import FinalCTA from './FinalCTA/FinalCTA';
 import Footer from './Footer/Footer';
+import ScrollToTop from './ScrollToTop/ScrollToTop';
 
 const sections = [
   Hero, About, Program, Benefits, ForWhom,
@@ -28,6 +29,7 @@ const App = () => {
         </AnimatedSection>
       ))}
       <Footer />
+      <ScrollToTop />
     </>
   );
 };
