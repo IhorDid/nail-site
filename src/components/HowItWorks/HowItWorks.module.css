@@ -140,7 +140,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
+  margin: 0 auto;
   padding: 10px 16px;
   background-color: var(--dark-accent);
   color: var(--light-text);
@@ -155,7 +155,7 @@
 
 @media only screen and (min-width: 768px) {
   .button {
-    width: 155px;
-    font-size: 12px;
+    width: 200px;
+    font-size: 16px;
   }
 }
