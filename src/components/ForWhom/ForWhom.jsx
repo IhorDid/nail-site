@@ -1,5 +1,6 @@
 import css from './ForWhom.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import Button from '../../UI/Button/Button';
 
 const items = [
   'Для майстрів, які хочуть працювати з трендовими короткими і натуральними формами',
@@ -25,6 +26,7 @@ const ForWhom = () => {
               </div>
             ))}
           </div>
+          <Button text="Записатися на курс" className={css.button} />
         </div>
       </SharedLayout>
     </section>

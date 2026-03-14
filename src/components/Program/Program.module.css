@@ -144,3 +144,31 @@
   flex-shrink: 0;
   color: var(--rose-accent);
 }
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  padding: 10px 16px;
+  background-color: var(--main-bg);
+  color: var(--light-text);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: var(--dark-accent);
+  color: var(--light-text);
+}
+
+@media only screen and (min-width: 768px) {
+  .button {
+    width: 155px;
+    font-size: 12px;
+  }
+}

@@ -1,5 +1,6 @@
 import css from './Program.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import Button from '../../UI/Button/Button';
 
 const blocks = [
   {
@@ -53,6 +54,8 @@ const Program = () => {
               </div>
             ))}
           </div>
+
+          <Button text="Записатися на курс" className={css.button} />
         </div>
       </SharedLayout>
     </section>

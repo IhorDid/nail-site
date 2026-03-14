@@ -133,3 +133,29 @@
     font-size: 14px;
   }
 }
+
+/* BUTTON */
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  padding: 10px 16px;
+  background-color: var(--dark-accent);
+  color: var(--light-text);
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--main-bg);
+  color: var(--gold);
+}
+
+@media only screen and (min-width: 768px) {
+  .button {
+    width: 155px;
+    font-size: 12px;
+  }
+}

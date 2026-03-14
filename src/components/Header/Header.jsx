@@ -15,11 +15,6 @@ const Header = () => {
 
   const handleClose = () => setMenuOpen(false);
 
-  const handleCTA = () => {
-    handleClose();
-    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <header className={css.header}>
       <SharedLayout header>
@@ -38,7 +33,7 @@ const Header = () => {
         <Button
           text="Записатися на курс"
           className={css.button}
-          onClick={handleCTA}
+          onClose={handleClose}
         />
 
         <button

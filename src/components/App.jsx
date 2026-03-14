@@ -15,8 +15,16 @@ import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
 
 const sections = [
-  Hero, About, Program, Benefits, ForWhom,
-  NotFor, HowItWorks, Pricing, FAQ, FinalCTA,
+  Hero,
+  About,
+  Program,
+  Benefits,
+  ForWhom,
+  HowItWorks,
+  Pricing,
+  FAQ,
+  NotFor,
+  FinalCTA,
 ];
 
 const App = () => {
