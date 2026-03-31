@@ -13,6 +13,10 @@ import FAQ from './FAQ/FAQ';
 import FinalCTA from './FinalCTA/FinalCTA';
 import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
+import Oferta from '../pages/Oferta/Oferta';
+import NotFound from '../pages/NotFound/NotFound';
+
+import { Outlet, Route, Routes } from 'react-router-dom';
 
 const sections = [
   Hero,
@@ -27,17 +31,37 @@ const sections = [
   FinalCTA,
 ];
 
+const Home = () => (
+  <>
+    <Header />
+    {sections.map((Section, i) => (
+      <AnimatedSection key={i} as="div">
+        <Section />
+      </AnimatedSection>
+    ))}
+  </>
+);
+
+const SiteLayout = () => {
+  return (
+    <>
+      <Outlet />
+      <Footer />
+      <ScrollToTop />
+    </>
+  );
+};
+
 const App = () => {
   return (
     <>
-      <Header />
-      {sections.map((Section, i) => (
-        <AnimatedSection key={i} as="div">
-          <Section />
-        </AnimatedSection>
-      ))}
-      <Footer />
-      <ScrollToTop />
+      <Routes>
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/oferta" element={<Oferta />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 };

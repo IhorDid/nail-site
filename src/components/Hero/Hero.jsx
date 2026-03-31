@@ -1,5 +1,7 @@
 import css from './Hero.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+// import heroImage from '../../assets/img/hero_img.JPG';
+import heroImage from '../../assets/img/hero_img-2.JPG';
 
 const Hero = () => {
   const heroList = [
@@ -55,8 +57,9 @@ const Hero = () => {
           </div>
 
           <div className={css.imageWrapper}>
-            <div className={css.image}></div>
-            <button className={css.imageBtn}>Приклад результату</button>
+            <div className={css.image}>
+              <img src={heroImage} alt="Slim Form курс манікюру" />
+            </div>
           </div>
         </div>
       </SharedLayout>

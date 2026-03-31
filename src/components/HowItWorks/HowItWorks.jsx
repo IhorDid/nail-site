@@ -5,7 +5,7 @@ import Button from '../../UI/Button/Button';
 const steps = [
   {
     icon: '📅',
-    title: 'Тривалість — 2 тижні',
+    title: 'Тривалість — 3 тижні',
     text: 'Структурована програма, яку зручно проходити у своєму темпі',
   },
   {

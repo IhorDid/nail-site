@@ -6,7 +6,7 @@ const plans = [
     title: 'Все сама',
     price: '3200',
     popular: false,
-    payUrl: 'WAYFORPAY_LINK_1', // замінити на своє посилання з кабінету WayForPay
+    payUrl: 'https://secure.wayforpay.com/button/b3181cdcaa880',
     features: [
       'Доступ до всіх уроків',
       'Загальний чат учасників',
@@ -18,10 +18,10 @@ const plans = [
     title: 'З куратором',
     price: '4600',
     popular: true,
-    payUrl: 'WAYFORPAY_LINK_2', // замінити на своє посилання з кабінету WayForPay
+    payUrl: 'https://secure.wayforpay.com/button/b9d56763f0e0e',
     features: [
       "Зворотний зв'язок",
-      'Перевірка домашніх завдань від куратора',
+      'Перевірка домашніх завдань від куратора протягом 3 тижнів',
       'Загальний чат учасників',
       'Доступ до уроків 90 днів',
       'Сертифікат',
@@ -45,7 +45,8 @@ const Pricing = () => {
                 <div className={css.cardHeader}>
                   <h3 className={css.cardTitle}>{title}</h3>
                   <p className={css.price}>
-                    {price}<span className={css.currency}> грн</span>
+                    {price}
+                    <span className={css.currency}> грн</span>
                   </p>
                 </div>
                 <ul className={css.features}>
@@ -56,7 +57,12 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-                <a href={payUrl} target="_blank" rel="noopener noreferrer" className={css.btn}>
+                <a
+                  href={payUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={css.btn}
+                >
                   Записатися
                 </a>
               </div>

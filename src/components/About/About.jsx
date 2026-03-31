@@ -1,7 +1,39 @@
 import css from './About.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import { useMemo, useState } from 'react';
+import heroImage from '../../assets/img/hero_img.JPG';
 
 const About = () => {
+  const courseImages = useMemo(() => {
+    const images = Object.values(
+      import.meta.glob('../../assets/img/course/*.{png,jpg,jpeg,webp,JPG,JPEG,PNG,WEBP}', {
+        eager: true,
+        import: 'default',
+      }),
+    );
+
+    return images.length ? images : [heroImage];
+  }, []);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const isSingleImage = courseImages.length === 1;
+  const visibleImages = Array.from(
+    { length: Math.min(3, courseImages.length) },
+    (_, index) => courseImages[(activeIndex + index) % courseImages.length],
+  );
+
+  const handlePrev = () => {
+    setActiveIndex(prev =>
+      prev === 0 ? courseImages.length - 1 : prev - 1,
+    );
+  };
+
+  const handleNext = () => {
+    setActiveIndex(prev =>
+      prev === courseImages.length - 1 ? 0 : prev + 1,
+    );
+  };
+
   return (
     <section className={css.about} id="about">
       <SharedLayout>
@@ -30,6 +62,58 @@ const About = () => {
                 технік — тільки те, що дійсно працює.
               </p>
             </div>
+          </div>
+
+          <div className={css.carousel}>
+            <div className={css.carouselTrack}>
+              {visibleImages.map((image, index) => (
+                <div
+                  key={`${image}-${index}`}
+                  className={`${css.slide} ${index > 0 ? css.slideExtra : ''}`}
+                >
+                  <img
+                    src={image}
+                    alt={`Фото курсу ${activeIndex + index + 1}`}
+                    className={css.carouselImage}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {!isSingleImage && (
+              <>
+                <button
+                  type="button"
+                  className={`${css.navBtn} ${css.navPrev}`}
+                  onClick={handlePrev}
+                  aria-label="Попереднє фото"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className={`${css.navBtn} ${css.navNext}`}
+                  onClick={handleNext}
+                  aria-label="Наступне фото"
+                >
+                  ›
+                </button>
+              </>
+            )}
+
+            {!isSingleImage && (
+              <div className={css.dots}>
+                {courseImages.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className={`${css.dot} ${index === activeIndex ? css.dotActive : ''}`}
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Перейти до фото ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </SharedLayout>

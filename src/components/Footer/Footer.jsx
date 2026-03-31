@@ -1,5 +1,6 @@
 import css from './Footer.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import { Link } from 'react-router-dom';
 
 import { TbBrandTelegram } from 'react-icons/tb';
 import { FaInstagram } from 'react-icons/fa6';
@@ -112,14 +113,9 @@ const Footer = () => {
         </div>
         <div className={css.bottom}>
           <p className={css.copy}>© 2026 Slim Form. Всі права захищено.</p>
-          <a
-            href="https://sojaneb.com/oferta"
-            className={css.oferta}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link to="/oferta" className={css.oferta}>
             Договір публічної оферти
-          </a>
+          </Link>
         </div>
       </SharedLayout>
     </footer>

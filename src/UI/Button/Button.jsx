@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ text, className, props, onClose }) => {
+const Button = ({ text, className, props, onClose, onClick }) => {
   const handleCTA = () => {
     if (onClose) {
       onClose();
@@ -9,7 +9,7 @@ const Button = ({ text, className, props, onClose }) => {
   };
 
   return (
-    <button className={className} {...props} onClick={handleCTA}>
+    <button className={className} {...props} onClick={onClick || handleCTA}>
       {text}
     </button>
   );

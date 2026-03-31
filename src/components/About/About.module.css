@@ -137,3 +137,88 @@
     font-size: 14px;
   }
 }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--main-bg);
+}
+
+.carouselTrack {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.slide {
+  width: 100%;
+}
+
+.slideExtra {
+  display: none;
+}
+
+.carouselImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(67, 5, 8, 0.75);
+  color: var(--light-text);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.navPrev {
+  left: 12px;
+}
+
+.navNext {
+  right: 12px;
+}
+
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(248, 238, 233, 0.45);
+}
+
+.dotActive {
+  background: var(--light-text);
+}
+
+@media only screen and (min-width: 768px) {
+  .carouselTrack {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .slideExtra {
+    display: block;
+  }
+
+  .carouselImage {
+    aspect-ratio: 4 / 5;
+  }
+}
