@@ -21,7 +21,7 @@ const nav = [
 ];
 
 const courses = [
-  { label: 'Slim Form', href: '#' },
+  { label: 'Slim Form', href: '/' },
   { label: 'PRO ГЕЛЬ', href: ctaLink },
 ];
 
