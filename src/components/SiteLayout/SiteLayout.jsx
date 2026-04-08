@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import DiscountBanner from '../DiscountBanner/DiscountBanner';
+import css from './SiteLayout.module.css';
 
 const SiteLayout = () => {
   const location = useLocation();
@@ -13,12 +14,14 @@ const SiteLayout = () => {
   }, [location.pathname]);
 
   return (
-    <>
-      <Outlet />
+    <div className={css.layout}>
+      <div className={css.main}>
+        <Outlet />
+      </div>
       <Footer />
       <ScrollToTop />
       {showBanner && <DiscountBanner />}
-    </>
+    </div>
   );
 };
 
