@@ -1,6 +1,8 @@
 import css from './Pricing.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
 
+const DISCOUNT_DEADLINE = new Date('2026-04-12T23:59:59').getTime();
+
 const plans = [
   {
     title: 'Все сама',
@@ -34,6 +36,8 @@ const plans = [
 ];
 
 const Pricing = () => {
+  const discountActive = Date.now() < DISCOUNT_DEADLINE;
+
   return (
     <section className={css.pricing} id="pricing">
       <SharedLayout>
@@ -43,40 +47,52 @@ const Pricing = () => {
             <h2 className={css.title}>Обери свій тариф</h2>
           </div>
           <div className={css.grid}>
-            {plans.map(({ title, price, oldPrice, discount, popular, payUrl, features }) => (
-              <div key={title} className={css.card}>
-                {popular && <div className={css.badge}>Популярний вибір</div>}
-                <div className={css.cardHeader}>
-                  <h3 className={css.cardTitle}>{title}</h3>
-                  <div className={css.priceBlock}>
-                    <p className={css.price}>
-                      {price}
-                      <span className={css.currency}> грн</span>
-                    </p>
-                    <div className={css.discountRow}>
-                      <span className={css.oldPrice}>{oldPrice} грн</span>
-                      <span className={css.discountBadge}>{discount}</span>
+            {plans.map(
+              ({
+                title,
+                price,
+                oldPrice,
+                discount,
+                popular,
+                payUrl,
+                features,
+              }) => (
+                <div key={title} className={css.card}>
+                  {popular && <div className={css.badge}>Популярний вибір</div>}
+                  <div className={css.cardHeader}>
+                    <h3 className={css.cardTitle}>{title}</h3>
+                    <div className={css.priceBlock}>
+                      <p className={css.price}>
+                        {discountActive ? price : oldPrice}
+                        <span className={css.currency}> грн</span>
+                      </p>
+                      {discountActive && (
+                        <div className={css.discountRow}>
+                          <span className={css.oldPrice}>{oldPrice} грн</span>
+                          <span className={css.discountBadge}>{discount}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
+                  <ul className={css.features}>
+                    {features.map((f, i) => (
+                      <li key={i} className={css.featureItem}>
+                        <span className={css.check}>✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={payUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={css.btn}
+                  >
+                    Записатися
+                  </a>
                 </div>
-                <ul className={css.features}>
-                  {features.map((f, i) => (
-                    <li key={i} className={css.featureItem}>
-                      <span className={css.check}>✓</span>
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={payUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={css.btn}
-                >
-                  Записатися
-                </a>
-              </div>
-            ))}
+              ),
+            )}
           </div>
         </div>
       </SharedLayout>

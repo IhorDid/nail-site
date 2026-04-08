@@ -1,21 +1,9 @@
 import { useState, useEffect } from 'react';
 import css from './DiscountBanner.module.css';
 
-const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
-const STORAGE_KEY = 'discount_deadline';
+const DEADLINE = new Date('2026-04-12T23:59:59').getTime();
 
 const pad = n => String(n).padStart(2, '0');
-
-const getDeadline = () => {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    const ts = parseInt(stored, 10);
-    if (ts > Date.now()) return ts;
-  }
-  const deadline = Date.now() + THREE_DAYS_MS;
-  localStorage.setItem(STORAGE_KEY, String(deadline));
-  return deadline;
-};
 
 const DiscountBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -24,7 +12,7 @@ const DiscountBanner = () => {
   const [expired, setExpired] = useState(false);
 
   useEffect(() => {
-    const deadline = getDeadline();
+    const deadline = DEADLINE;
 
     const tick = () => {
       const diff = deadline - Date.now();
