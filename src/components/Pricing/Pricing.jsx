@@ -4,7 +4,9 @@ import SharedLayout from '../SharedLayout/SharedLayout';
 const plans = [
   {
     title: 'Все сама',
-    price: '3200',
+    price: '3510',
+    oldPrice: '3900',
+    discount: '−10%',
     popular: false,
     payUrl: 'https://secure.wayforpay.com/button/b3181cdcaa880',
     features: [
@@ -16,7 +18,9 @@ const plans = [
   },
   {
     title: 'З куратором',
-    price: '4600',
+    price: '5040',
+    oldPrice: '5600',
+    discount: '−10%',
     popular: true,
     payUrl: 'https://secure.wayforpay.com/button/b9d56763f0e0e',
     features: [
@@ -39,15 +43,21 @@ const Pricing = () => {
             <h2 className={css.title}>Обери свій тариф</h2>
           </div>
           <div className={css.grid}>
-            {plans.map(({ title, price, popular, payUrl, features }) => (
+            {plans.map(({ title, price, oldPrice, discount, popular, payUrl, features }) => (
               <div key={title} className={css.card}>
                 {popular && <div className={css.badge}>Популярний вибір</div>}
                 <div className={css.cardHeader}>
                   <h3 className={css.cardTitle}>{title}</h3>
-                  <p className={css.price}>
-                    {price}
-                    <span className={css.currency}> грн</span>
-                  </p>
+                  <div className={css.priceBlock}>
+                    <p className={css.price}>
+                      {price}
+                      <span className={css.currency}> грн</span>
+                    </p>
+                    <div className={css.discountRow}>
+                      <span className={css.oldPrice}>{oldPrice} грн</span>
+                      <span className={css.discountBadge}>{discount}</span>
+                    </div>
+                  </div>
                 </div>
                 <ul className={css.features}>
                   {features.map((f, i) => (

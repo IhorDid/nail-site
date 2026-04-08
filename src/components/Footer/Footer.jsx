@@ -1,12 +1,14 @@
 import css from './Footer.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { TbBrandTelegram } from 'react-icons/tb';
 import { FaInstagram } from 'react-icons/fa6';
 import { CiYoutube } from 'react-icons/ci';
 import { PiTiktokLogoLight } from 'react-icons/pi';
 import { FaSquareThreads } from 'react-icons/fa6';
+import { use } from 'react';
 
 const ctaLink =
   'https://sojaneb.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnM6QWAR_6JBoTd11gwtiXtNStA0MByZoyKRDnylDNw7vOKLppd8tn1zPYVKY_aem_p2AGBf_drGTP-Nad21hEPg';
@@ -52,6 +54,9 @@ const contacts = [
 ];
 
 const Footer = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <footer className={css.footer}>
       <SharedLayout>
@@ -63,18 +68,20 @@ const Footer = () => {
               стабільний результат, економія часу.
             </p>
           </div>
-          <div className={css.col}>
-            <h4 className={css.colTitle}>Навігація</h4>
-            <ul className={css.colList}>
-              {nav.map(({ label, href }) => (
-                <li key={label}>
-                  <a href={href} className={css.link}>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {isHomePage && (
+            <div className={css.col}>
+              <h4 className={css.colTitle}>Навігація</h4>
+              <ul className={css.colList}>
+                {nav.map(({ label, href }) => (
+                  <li key={label}>
+                    <a href={href} className={css.link}>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className={css.col}>
             <h4 className={css.colTitle}>Курси</h4>
             <ul className={css.colList}>

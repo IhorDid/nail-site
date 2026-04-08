@@ -13,10 +13,12 @@ import FAQ from './FAQ/FAQ';
 import FinalCTA from './FinalCTA/FinalCTA';
 import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
+import DiscountBanner from './DiscountBanner/DiscountBanner';
 import Oferta from '../pages/Oferta/Oferta';
+import FailedPayment from '../pages/FailedPayment/FailedPayment';
 import NotFound from '../pages/NotFound/NotFound';
 
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
 
 const sections = [
   Hero,
@@ -43,11 +45,15 @@ const Home = () => (
 );
 
 const SiteLayout = () => {
+  const location = useLocation();
+  const showBanner = ['/', '/oferta'].includes(location.pathname);
+
   return (
     <>
       <Outlet />
       <Footer />
       <ScrollToTop />
+      {showBanner && <DiscountBanner />}
     </>
   );
 };
@@ -59,6 +65,7 @@ const App = () => {
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/oferta" element={<Oferta />} />
+          <Route path="/neuspishna-oplata" element={<FailedPayment />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

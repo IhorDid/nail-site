@@ -131,6 +131,13 @@
   margin: 0;
 }
 
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
 .price {
   font-family: 'Manrope', sans-serif;
   font-size: 52px;
@@ -144,6 +151,32 @@
   font-size: 22px;
   font-weight: 400;
   color: var(--secondary-text);
+}
+
+.discountRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.oldPrice {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--secondary-text);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.discountBadge {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark-accent);
+  background-color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 50px;
+  letter-spacing: 0.03em;
 }
 
 /* FEATURES */

@@ -13,7 +13,7 @@ const NotFound = () => {
             Можливо, посилання застаріле або сторінка була переміщена.
           </p>
           <Link to="/" className={css.button}>
-            Повернутися на Home
+            Повернутися на головну
           </Link>
         </div>
       </SharedLayout>
