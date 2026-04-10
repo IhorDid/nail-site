@@ -1,5 +1,6 @@
 import css from './NotFor.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 
 const items = [
   'Якщо хочеш навчитись працювати з довгими нігтями та чіткою архітектурою',
@@ -21,15 +22,15 @@ const NotFor = () => {
               Цей курс не про довгі нігті та складну архітектуру
             </p>
           </div>
-          <ul className={css.list}>
+          <AnimatedSection as="ul" className={css.list} delay={100}>
             {items.map((text, i) => (
               <li key={i} className={css.item}>
                 <span className={css.cross}>✕</span>
                 <span>{text}</span>
               </li>
             ))}
-          </ul>
-          <div className={css.cta}>
+          </AnimatedSection>
+          <AnimatedSection as="div" className={css.cta} delay={250}>
             <p className={css.ctaText}>
               Ці теми розкриваються на великому курсі
             </p>
@@ -41,7 +42,7 @@ const NotFor = () => {
             >
               PRO ГЕЛЬ →
             </a>
-          </div>
+          </AnimatedSection>
         </div>
       </SharedLayout>
     </section>

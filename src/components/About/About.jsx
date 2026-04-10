@@ -1,15 +1,19 @@
 import css from './About.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 import { useMemo, useState } from 'react';
 import heroImage from '../../assets/img/hero_img.JPG';
 
 const About = () => {
   const courseImages = useMemo(() => {
     const images = Object.values(
-      import.meta.glob('../../assets/img/course/*.{png,jpg,jpeg,webp,JPG,JPEG,PNG,WEBP}', {
-        eager: true,
-        import: 'default',
-      }),
+      import.meta.glob(
+        '../../assets/img/course/*.{png,jpg,jpeg,webp,JPG,JPEG,PNG,WEBP}',
+        {
+          eager: true,
+          import: 'default',
+        },
+      ),
     );
 
     return images.length ? images : [heroImage];
@@ -23,15 +27,11 @@ const About = () => {
   );
 
   const handlePrev = () => {
-    setActiveIndex(prev =>
-      prev === 0 ? courseImages.length - 1 : prev - 1,
-    );
+    setActiveIndex(prev => (prev === 0 ? courseImages.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex(prev =>
-      prev === courseImages.length - 1 ? 0 : prev + 1,
-    );
+    setActiveIndex(prev => (prev === courseImages.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -44,7 +44,12 @@ const About = () => {
               Slim Form — це курс про короткі натуральні нігті
             </h2>
           </div>
-          <div className={css.grid}>
+          <AnimatedSection
+            as="div"
+            className={css.grid}
+            delay={100}
+            direction="left"
+          >
             <div className={css.card}>
               <div className={css.icon}>💅</div>
               <h3 className={css.cardTitle}>Безпечне покриття</h3>
@@ -62,9 +67,14 @@ const About = () => {
                 технік — тільки те, що дійсно працює.
               </p>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className={css.carousel}>
+          <AnimatedSection
+            as="div"
+            className={css.carousel}
+            delay={250}
+            direction="right"
+          >
             <div className={css.carouselTrack}>
               {visibleImages.map((image, index) => (
                 <div
@@ -114,7 +124,7 @@ const About = () => {
                 ))}
               </div>
             )}
-          </div>
+          </AnimatedSection>
         </div>
       </SharedLayout>
     </section>

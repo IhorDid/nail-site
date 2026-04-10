@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import css from './DiscountBanner.module.css';
 
-const DEADLINE = new Date('2026-04-12T23:59:59').getTime();
+const DEADLINE = new Date('2026-04-13T23:59:59').getTime();
 
 const pad = n => String(n).padStart(2, '0');
 

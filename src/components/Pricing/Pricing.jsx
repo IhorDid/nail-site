@@ -1,7 +1,8 @@
 import css from './Pricing.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 
-const DISCOUNT_DEADLINE = new Date('2026-04-12T23:59:59').getTime();
+const DISCOUNT_DEADLINE = new Date('2026-04-13T23:59:59').getTime();
 
 const plans = [
   {
@@ -56,8 +57,8 @@ const Pricing = () => {
                 popular,
                 payUrl,
                 features,
-              }) => (
-                <div key={title} className={css.card}>
+              }, i) => (
+                <AnimatedSection as="div" key={title} className={css.card} direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 200}>
                   {popular && <div className={css.badge}>Популярний вибір</div>}
                   <div className={css.cardHeader}>
                     <h3 className={css.cardTitle}>{title}</h3>
@@ -90,7 +91,7 @@ const Pricing = () => {
                   >
                     Записатися
                   </a>
-                </div>
+                </AnimatedSection>
               ),
             )}
           </div>

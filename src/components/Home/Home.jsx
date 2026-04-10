@@ -1,4 +1,3 @@
-import AnimatedSection from '../../AnimatedSection';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import About from '../About/About';
@@ -11,27 +10,19 @@ import Pricing from '../Pricing/Pricing';
 import FAQ from '../FAQ/FAQ';
 import FinalCTA from '../FinalCTA/FinalCTA';
 
-const sections = [
-  Hero,
-  About,
-  Program,
-  Benefits,
-  ForWhom,
-  HowItWorks,
-  Pricing,
-  FAQ,
-  NotFor,
-  FinalCTA,
-];
-
 const Home = () => (
   <>
     <Header />
-    {sections.map((Section, i) => (
-      <AnimatedSection key={i} as="div">
-        <Section />
-      </AnimatedSection>
-    ))}
+    <Hero />
+    <About />
+    <Program />
+    <Benefits />
+    <ForWhom />
+    <HowItWorks />
+    <Pricing />
+    <FAQ />
+    <NotFor />
+    <FinalCTA />
   </>
 );
 

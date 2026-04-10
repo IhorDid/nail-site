@@ -1,5 +1,6 @@
 import css from './Hero.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 // import heroImage from '../../assets/img/hero_img.JPG';
 import heroImage from '../../assets/img/hero_img-2.JPG';
 
@@ -29,38 +30,38 @@ const Hero = () => {
           <div className={css.content}>
             <p className={css.label}>Онлайн-курс</p>
             <h1 className={css.title}>Slim Form</h1>
-            <p className={css.subtitle}>
+            <AnimatedSection as="p" className={css.subtitle} delay={100}>
               Курс про короткі натуральні нігті без зайвих рухів і складних
               технік
-            </p>
-            <p className={css.description}>
+            </AnimatedSection>
+            <AnimatedSection as="p" className={css.description} delay={200}>
               Навчись безпечно працювати базою та тонким гелевим покриттям без
               відшарувань, без поверхневого опилу, без затискання арки й
               складної архітектури.
-            </p>
-            <ul className={css.benefits}>
+            </AnimatedSection>
+            <AnimatedSection as="ul" className={css.benefits} delay={300}>
               {heroList.map(({ title }) => (
                 <li className={css.benefitItem} key={title}>
                   <span className={css.check}>✓</span>
                   <span>{title}</span>
                 </li>
               ))}
-            </ul>
-            <div className={css.buttons}>
+            </AnimatedSection>
+            <AnimatedSection as="div" className={css.buttons} delay={400}>
               <a href="#pricing" className={css.btnPrimary}>
                 Обрати тариф
               </a>
               <a href="#program" className={css.btnSecondary}>
                 Переглянути програму
               </a>
-            </div>
+            </AnimatedSection>
           </div>
 
-          <div className={css.imageWrapper}>
+          <AnimatedSection as="div" className={css.imageWrapper} direction="right" delay={200}>
             <div className={css.image}>
               <img src={heroImage} alt="Slim Form курс манікюру" />
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </SharedLayout>
     </section>

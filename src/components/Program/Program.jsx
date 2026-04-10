@@ -1,5 +1,6 @@
 import css from './Program.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 import Button from '../../UI/Button/Button';
 
 const blocks = [
@@ -41,8 +42,8 @@ const Program = () => {
             <h2 className={css.title}>Що ти вивчиш на курсі</h2>
           </div>
           <div className={css.grid}>
-            {blocks.map(block => (
-              <div key={block.title} className={css.card}>
+            {blocks.map((block, i) => (
+              <AnimatedSection as="div" key={block.title} className={css.card} direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 150}>
                 <h3 className={css.cardTitle}>{block.title}</h3>
                 <ul className={css.list}>
                   {block.items.map(item => (
@@ -52,11 +53,13 @@ const Program = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
 
-          <Button text="Записатися на курс" className={css.button} />
+          <AnimatedSection as="div" delay={300}>
+            <Button text="Записатися на курс" className={css.button} />
+          </AnimatedSection>
         </div>
       </SharedLayout>
     </section>

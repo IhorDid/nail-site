@@ -1,5 +1,6 @@
 import css from './HowItWorks.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 import Button from '../../UI/Button/Button';
 
 const steps = [
@@ -35,15 +36,17 @@ const HowItWorks = () => {
             <h2 className={css.title}>Як проходить курс</h2>
           </div>
           <div className={css.grid}>
-            {steps.map(({ icon, title, text }) => (
-              <div key={title} className={css.card}>
+            {steps.map(({ icon, title, text }, i) => (
+              <AnimatedSection as="div" key={title} className={css.card} delay={i * 120}>
                 <div className={css.icon}>{icon}</div>
                 <h3 className={css.cardTitle}>{title}</h3>
                 <p className={css.cardText}>{text}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
-          <Button text="Записатися на курс" className={css.button} />
+          <AnimatedSection as="div" delay={500}>
+            <Button text="Записатися на курс" className={css.button} />
+          </AnimatedSection>
         </div>
       </SharedLayout>
     </section>

@@ -1,5 +1,6 @@
 import css from './ForWhom.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 import Button from '../../UI/Button/Button';
 
 const items = [
@@ -21,12 +22,20 @@ const ForWhom = () => {
           </div>
           <div className={css.grid}>
             {items.map((text, i) => (
-              <div key={i} className={css.card}>
+              <AnimatedSection
+                as="div"
+                key={i}
+                className={css.card}
+                delay={i * 100}
+                direction={i % 2 === 0 ? 'left' : 'right'}
+              >
                 <p className={css.cardText}>{text}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
-          <Button text="Записатися на курс" className={css.button} />
+          <AnimatedSection as="div" delay={500}>
+            <Button text="Записатися на курс" className={css.button} />
+          </AnimatedSection>
         </div>
       </SharedLayout>
     </section>

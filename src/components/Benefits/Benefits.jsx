@@ -1,5 +1,6 @@
 import css from './Benefits.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 import img from '../../assets/img/benefits/img-1.jpg';
 
 const items = [
@@ -28,18 +29,18 @@ const Benefits = () => {
       <SharedLayout>
         <div className={css.sectionHeader}>
           <p className={css.label}>Результати</p>
-          <h2 className={css.title}>Що ти отримаєш після курсу</h2>
         </div>
         <div className={css.content}>
-          <div className={css.imgWrap}>
+          <AnimatedSection as="div" className={css.imgWrap} direction="left">
             <img src={img} alt="Авторка курсу" className={css.img} />
-          </div>
+            <h2 className={css.title}>Що ти отримаєш після курсу</h2>
+          </AnimatedSection>
           <div className={css.grid}>
-            {items.map(({ num, text }) => (
-              <div key={num} className={css.card}>
+            {items.map(({ num, text }, i) => (
+              <AnimatedSection as="div" key={num} className={css.card} delay={i * 100}>
                 <span className={css.number}>{num}</span>
                 <h3 className={css.cardText}>{text}</h3>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

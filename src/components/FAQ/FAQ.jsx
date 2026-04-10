@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import css from './FAQ.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
+import AnimatedSection from '../../AnimatedSection';
 
 const items = [
   {
@@ -48,8 +49,14 @@ const FAQ = () => {
             <p className={css.label}>Питання</p>
             <h2 className={css.title}>Часті запитання</h2>
           </div>
-          <ul className={css.list}>
-            {items.map(({ question, answer }, i) => (
+          {items.map(({ question, answer }, i) => (
+            <AnimatedSection
+              as="li"
+              className={css.list}
+              delay={100}
+              key={i}
+              direction={i % 2 === 0 ? 'left' : 'right'}
+            >
               <li key={i} className={css.item}>
                 <button
                   className={css.question}
@@ -57,16 +64,16 @@ const FAQ = () => {
                   aria-expanded={openIndex === i}
                 >
                   <span>{question}</span>
-                  <span className={`${css.icon} ${openIndex === i ? css.iconOpen : ''}`}>
+                  <span
+                    className={`${css.icon} ${openIndex === i ? css.iconOpen : ''}`}
+                  >
                     {openIndex === i ? '✕' : '+'}
                   </span>
                 </button>
-                {openIndex === i && (
-                  <p className={css.answer}>{answer}</p>
-                )}
+                {openIndex === i && <p className={css.answer}>{answer}</p>}
               </li>
-            ))}
-          </ul>
+            </AnimatedSection>
+          ))}
         </div>
       </SharedLayout>
     </section>
