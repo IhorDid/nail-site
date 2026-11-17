@@ -2,98 +2,60 @@ import css from './Pricing.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
 import AnimatedSection from '../../AnimatedSection';
 
-const DISCOUNT_DEADLINE = new Date('2026-04-13T23:59:59').getTime();
+const PAY_URL = 'https://secure.wayforpay.com/button/b9d56763f0e0e';
 
-const plans = [
-  {
-    title: 'Все сама',
-    price: '3510',
-    oldPrice: '3900',
-    discount: '−10%',
-    popular: false,
-    payUrl: 'https://secure.wayforpay.com/button/b3181cdcaa880',
-    features: [
-      'Доступ до всіх уроків',
-      'Загальний чат учасників',
-      "Без зворотного зв'язку",
-      'Доступ до уроків 90 днів',
-    ],
-  },
-  {
-    title: 'З куратором',
-    price: '5040',
-    oldPrice: '5600',
-    discount: '−10%',
-    popular: true,
-    payUrl: 'https://secure.wayforpay.com/button/b9d56763f0e0e',
-    features: [
-      "Зворотний зв'язок",
-      'Перевірка домашніх завдань від куратора протягом 3 тижнів',
-      'Загальний чат учасників',
-      'Доступ до уроків 90 днів',
-      'Сертифікат',
-    ],
-  },
-];
+const plan = {
+  title: 'Онлайн-курс «Голі нігті»',
+  price: '6200',
+  features: [
+    'Повна програма: блок «Бази» і блок «Гелі»',
+    'Усі уроки в записі',
+    'Доступ до уроків 3 місяці',
+    "Група учасників у Telegram зі зворотним зв'язком",
+  ],
+};
 
 const Pricing = () => {
-  const discountActive = Date.now() < DISCOUNT_DEADLINE;
+  const { title, price, features } = plan;
 
   return (
     <section className={css.pricing} id="pricing">
       <SharedLayout>
         <div className={css.wrapper}>
           <div className={css.sectionHeader}>
-            <p className={css.label}>Тарифи</p>
-            <h2 className={css.title}>Обери свій тариф</h2>
+            <p className={css.label}>Вартість</p>
+            <h2 className={css.title}>Вартість курсу</h2>
           </div>
           <div className={css.grid}>
-            {plans.map(
-              ({
-                title,
-                price,
-                oldPrice,
-                discount,
-                popular,
-                payUrl,
-                features,
-              }, i) => (
-                <AnimatedSection as="div" key={title} className={css.card} direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 200}>
-                  {popular && <div className={css.badge}>Популярний вибір</div>}
-                  <div className={css.cardHeader}>
-                    <h3 className={css.cardTitle}>{title}</h3>
-                    <div className={css.priceBlock}>
-                      <p className={css.price}>
-                        {discountActive ? price : oldPrice}
-                        <span className={css.currency}> грн</span>
-                      </p>
-                      {discountActive && (
-                        <div className={css.discountRow}>
-                          <span className={css.oldPrice}>{oldPrice} грн</span>
-                          <span className={css.discountBadge}>{discount}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <ul className={css.features}>
-                    {features.map((f, i) => (
-                      <li key={i} className={css.featureItem}>
-                        <span className={css.check}>✓</span>
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={payUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={css.btn}
-                  >
-                    Записатися
-                  </a>
-                </AnimatedSection>
-              ),
-            )}
+            <AnimatedSection as="div" className={css.card} delay={100}>
+              <div className={css.cardHeader}>
+                <h3 className={css.cardTitle}>{title}</h3>
+                <p className={css.price}>
+                  {price}
+                  <span className={css.currency}> грн</span>
+                </p>
+                <p className={css.installment}>
+                  Є можливість оплати частинами від банку — до 6 платежів без
+                  комісії
+                </p>
+              </div>
+              <ul className={css.features}>
+                {features.map(f => (
+                  <li key={f} className={css.featureItem}>
+                    <span className={css.check}>✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={PAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={css.btn}
+              >
+                Записатися на курс
+              </a>
+            </AnimatedSection>
           </div>
         </div>
       </SharedLayout>

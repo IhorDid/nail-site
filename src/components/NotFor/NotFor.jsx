@@ -32,7 +32,7 @@ const NotFor = () => {
           </AnimatedSection>
           <AnimatedSection as="div" className={css.cta} delay={250}>
             <p className={css.ctaText}>
-              Ці теми розкриваються на великому курсі
+              Ці теми в тому числі розкриваю на великому курсі
             </p>
             <a
               href={ctaLink}

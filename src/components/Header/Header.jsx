@@ -5,7 +5,7 @@ import Button from '../../UI/Button/Button';
 
 const navLinks = [
   { label: 'Програма', href: '#program' },
-  { label: 'Тарифи', href: '#pricing' },
+  { label: 'Вартість', href: '#pricing' },
   { label: 'Як проходить', href: '#howitworks' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -19,7 +19,7 @@ const Header = () => {
     <header className={css.header}>
       <SharedLayout header>
         <a href="#" className={css.logo}>
-          Slim Form
+          Голі нігті
         </a>
 
         <nav className={css.nav}>

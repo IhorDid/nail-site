@@ -13,7 +13,7 @@ const FinalCTA = () => {
             чистіше та дорожче?
           </h2>
           <AnimatedSection as="p" className={css.description} delay={100}>
-            Приєднуйся до курсу <span className={css.accent}>Slim Form</span> і опануй техніку коротких натуральних нігтів,{' '}
+            Приєднуйся до курсу <span className={css.accent}>«Голі нігті»</span> і опануй техніку коротких натуральних нігтів,{' '}
             яка дає стабільний результат без зайвих рухів.
           </AnimatedSection>
           <AnimatedSection as="div" delay={250}>

@@ -52,7 +52,7 @@ const DiscountBanner = () => {
       <button
         className={css.pill}
         onClick={handleClick}
-        aria-label="Перейти до тарифів"
+        aria-label="Перейти до вартості курсу"
       >
         <span className={css.fire}>🔥</span>
         <span className={css.text}>Знижка 10%</span>

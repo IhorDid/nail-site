@@ -8,7 +8,6 @@ import { FaInstagram } from 'react-icons/fa6';
 import { CiYoutube } from 'react-icons/ci';
 import { PiTiktokLogoLight } from 'react-icons/pi';
 import { FaSquareThreads } from 'react-icons/fa6';
-import { use } from 'react';
 
 const ctaLink =
   'https://sojaneb.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnM6QWAR_6JBoTd11gwtiXtNStA0MByZoyKRDnylDNw7vOKLppd8tn1zPYVKY_aem_p2AGBf_drGTP-Nad21hEPg';
@@ -16,12 +15,12 @@ const ctaLink =
 const nav = [
   { label: 'Програма', href: '#program' },
   { label: 'Для кого', href: '#forwhom' },
-  { label: 'Тарифи', href: '#pricing' },
+  { label: 'Вартість', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ];
 
 const courses = [
-  { label: 'Slim Form', href: '/' },
+  { label: 'Голі нігті', href: '/' },
   { label: 'PRO ГЕЛЬ', href: ctaLink },
 ];
 
@@ -62,10 +61,10 @@ const Footer = () => {
       <SharedLayout>
         <div className={css.content}>
           <div className={css.brand}>
-            <p className={css.logo}>Slim Form</p>
+            <p className={css.logo}>Голі нігті</p>
             <p className={css.brandText}>
-              Онлайн-курс про короткі натуральні нігті. Безпечна техніка,
-              стабільний результат, економія часу.
+              Онлайн-курс по роботі базою і зміцненню пластичним гелем на
+              коротких натуральних нігтях.
             </p>
           </div>
           {isHomePage && (
@@ -119,7 +118,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={css.bottom}>
-          <p className={css.copy}>© 2026 Slim Form. Всі права захищено.</p>
+          <p className={css.copy}>© 2026 Голі нігті. Всі права захищено.</p>
           <Link to="/oferta" className={css.oferta}>
             Договір публічної оферти
           </Link>

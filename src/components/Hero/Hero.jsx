@@ -6,22 +6,10 @@ import heroImage from '../../assets/img/hero_img-2.JPG';
 
 const Hero = () => {
   const heroList = [
-    {
-      title: 'Економія 20–40 хв на кожному клієнті',
-      description: 'Економія 20–40 хв на кожному клієнті',
-    },
-    {
-      title: 'Тонке покриття, яке виглядає дорого',
-      description: 'Тонке покриття, яке виглядає дорого',
-    },
-    {
-      title: 'Безпечна та проста техніка',
-      description: 'Безпечна та проста техніка',
-    },
-    {
-      title: 'Стабільний результат без білих плям',
-      description: 'Стабільний результат без білих плям',
-    },
+    { title: 'Економія 20–40 хв на кожному клієнті' },
+    { title: 'Тонке покриття, яке виглядає майже як база' },
+    { title: 'Носиться без відшарувань і білих плям' },
+    { title: 'Безпечна та проста техніка' },
   ];
   return (
     <section className={css.hero}>
@@ -29,15 +17,13 @@ const Hero = () => {
         <div className={css.inner}>
           <div className={css.content}>
             <p className={css.label}>Онлайн-курс</p>
-            <h1 className={css.title}>Slim Form</h1>
+            <h1 className={css.title}>Голі нігті</h1>
             <AnimatedSection as="p" className={css.subtitle} delay={100}>
-              Курс про короткі натуральні нігті без зайвих рухів і складних
-              технік
+              Курс по роботі базою і зміцненню пластичним гелем
             </AnimatedSection>
             <AnimatedSection as="p" className={css.description} delay={200}>
-              Навчись безпечно працювати базою та тонким гелевим покриттям без
-              відшарувань, без поверхневого опилу, без затискання арки й
-              складної архітектури.
+              Про короткі натуральні нігті без зайвих рухів і складних технік.
+              Без поверхневого опилу, затискання арки й складної архітектури.
             </AnimatedSection>
             <AnimatedSection as="ul" className={css.benefits} delay={300}>
               {heroList.map(({ title }) => (
@@ -49,7 +35,7 @@ const Hero = () => {
             </AnimatedSection>
             <AnimatedSection as="div" className={css.buttons} delay={400}>
               <a href="#pricing" className={css.btnPrimary}>
-                Обрати тариф
+                Записатися на курс
               </a>
               <a href="#program" className={css.btnSecondary}>
                 Переглянути програму
@@ -59,7 +45,7 @@ const Hero = () => {
 
           <AnimatedSection as="div" className={css.imageWrapper} direction="right" delay={200}>
             <div className={css.image}>
-              <img src={heroImage} alt="Slim Form курс манікюру" />
+              <img src={heroImage} alt="Голі нігті — онлайн-курс манікюру" />
             </div>
           </AnimatedSection>
         </div>
