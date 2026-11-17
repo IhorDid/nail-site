@@ -133,6 +133,10 @@
     gap: 10px;
   }
 
+  .unit {
+    min-width: 24px;
+  }
+
   .num {
     font-size: 14px;
   }

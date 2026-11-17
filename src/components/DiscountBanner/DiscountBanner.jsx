@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import css from './DiscountBanner.module.css';
+import { PROMO_DEADLINE, PROMO_PRICE, REGULAR_PRICE } from '../../promo';
 
-const DEADLINE = new Date('2026-04-13T23:59:59').getTime();
+const DEADLINE = PROMO_DEADLINE;
 
 const pad = n => String(n).padStart(2, '0');
 
@@ -55,7 +56,7 @@ const DiscountBanner = () => {
         aria-label="Перейти до вартості курсу"
       >
         <span className={css.fire}>🔥</span>
-        <span className={css.text}>Знижка 10%</span>
+        <span className={css.text}>−{REGULAR_PRICE - PROMO_PRICE} грн</span>
         <div className={css.timer}>
           <span className={css.unit}>
             <span className={css.num}>{pad(d)}</span>
