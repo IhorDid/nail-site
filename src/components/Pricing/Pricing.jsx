@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { PiGiftLight } from 'react-icons/pi';
+import {
+  PiGiftLight,
+  PiLockSimpleLight,
+  PiCalendarCheckLight,
+} from 'react-icons/pi';
 import css from './Pricing.module.css';
 import SharedLayout from '../SharedLayout/SharedLayout';
 import AnimatedSection from '../../AnimatedSection';
@@ -10,6 +14,9 @@ import {
   REGULAR_PAY_URL,
   PROMO_BONUS,
   PROMO_UNTIL,
+  BOOKING_DEPOSIT,
+  BOOKING_PAY_URL,
+  BOOKING_BALANCE_UNTIL,
   isPromoActive,
   onPromoEnd,
 } from '../../promo';
@@ -97,6 +104,66 @@ const Pricing = () => {
               >
                 Записатися на курс
               </a>
+
+              {promo && (
+                <div className={css.booking}>
+                  <p className={css.divider}>або</p>
+                  <div className={css.bookingPanel}>
+                    <p className={css.bookingEyebrow}>Мінімальна передплата</p>
+                    <h4 className={css.bookingTitle}>
+                      Забронюй місце за{' '}
+                      <span className={css.bookingAmount}>
+                        {BOOKING_DEPOSIT} грн
+                      </span>
+                    </h4>
+                    <ul className={css.bookingPerks}>
+                      <li className={css.bookingPerk}>
+                        <PiLockSimpleLight
+                          className={css.perkIcon}
+                          aria-hidden="true"
+                        />
+                        <span>
+                          Фіксуєш ціну{' '}
+                          <b className={css.nowrap}>{PROMO_PRICE} грн</b>{' '}
+                          замість{' '}
+                          <span className={css.nowrap}>{REGULAR_PRICE} грн</span>
+                        </span>
+                      </li>
+                      <li className={css.bookingPerk}>
+                        <PiGiftLight
+                          className={css.perkIcon}
+                          aria-hidden="true"
+                        />
+                        <span>
+                          Подарунок — <b>додатковий місяць доступу</b> до уроків
+                        </span>
+                      </li>
+                    </ul>
+                    <p className={css.bookingBalance}>
+                      <PiCalendarCheckLight
+                        className={css.balanceIcon}
+                        aria-hidden="true"
+                      />
+                      <span>
+                        Залишок{' '}
+                        <span className={css.nowrap}>
+                          {PROMO_PRICE - BOOKING_DEPOSIT} грн
+                        </span>{' '}
+                        можна внести до{' '}
+                        <b className={css.nowrap}>{BOOKING_BALANCE_UNTIL}</b>
+                      </span>
+                    </p>
+                    <a
+                      href={BOOKING_PAY_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={css.btnBooking}
+                    >
+                      Забронювати місце
+                    </a>
+                  </div>
+                </div>
+              )}
             </AnimatedSection>
           </div>
         </div>

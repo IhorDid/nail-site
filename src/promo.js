@@ -9,12 +9,23 @@ export const PROMO_PRICE = 5200;
 // Бонус, який показується в картці тільки під час акції.
 export const PROMO_BONUS = 'Додатковий місяць доступу до каналу з уроками';
 
-// «26 листопада» — формується з дедлайну, руками не міняти.
-export const PROMO_UNTIL = new Intl.DateTimeFormat('uk-UA', {
-  day: 'numeric',
-  month: 'long',
-  timeZone: 'Europe/Kyiv',
-}).format(PROMO_DEADLINE);
+// «26 листопада» — формується з дати, руками не міняти.
+const formatDay = date =>
+  new Intl.DateTimeFormat('uk-UA', {
+    day: 'numeric',
+    month: 'long',
+    timeZone: 'Europe/Kyiv',
+  }).format(date);
+
+export const PROMO_UNTIL = formatDay(PROMO_DEADLINE);
+
+// Бронювання місця передплатою (показується тільки під час акції).
+// Сума має збігатися з сумою в кнопці WayForPay.
+export const BOOKING_DEPOSIT = 1000;
+export const BOOKING_PAY_URL = 'https://secure.wayforpay.com/button/b50ce14fb4bca';
+export const BOOKING_BALANCE_UNTIL = formatDay(
+  new Date('2026-11-30T23:59:59+02:00'),
+);
 
 // Кнопки оплати WayForPay. Якщо для акції буде окрема кнопка на 5200 —
 // вставити її посилання в PROMO_PAY_URL, і сайт сам переключиться після дедлайну.
